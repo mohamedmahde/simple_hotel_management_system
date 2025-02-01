@@ -48,7 +48,8 @@
         <th class="th_deg">wifi</th>
         <th class="th_deg">Room Type</th>
         <th class="th_deg">Image</th>
-        <th class="th_deg">Action</th>
+        <th class="th_deg">Delete</th>
+        <th class="th_deg">Update</th>
     </tr>
 
     @foreach ( $data as $data )
@@ -66,6 +67,10 @@
         </td>
         <td>
             <a onclick="return confirm('are you sure to delete')" class="btn btn-danger" href="{{ url('room_delete ' ,$data->id) }}">Delete</a>
+        </td>
+
+        <td>
+            <a  class="btn btn-success" href="{{ url('room_update',$data->id) }}">Edit</a>
         </td>
     </tr>
 
