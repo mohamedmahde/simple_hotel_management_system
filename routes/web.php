@@ -39,6 +39,7 @@ Route::post('upload_gallary' , [AdminController::class, 'upload_gallary']);
 Route::get('delete_gallary/{id}' , [AdminController::class, 'delete_gallary'])->name('delete_gallary');
 
 Route::post('contact' , [HomeController::class, 'contact']);
+Route::get('all_massages' , [AdminController::class, 'all_massages']);
 
 
 

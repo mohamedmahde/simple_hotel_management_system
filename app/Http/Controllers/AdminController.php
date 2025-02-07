@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Room;
 use App\Models\Booking;
+use App\Models\Contact;
 use App\Models\Gallary;
 
 
@@ -170,5 +171,10 @@ $data=Booking::all();
         return redirect()->back();
 
 
+    }
+
+    public function all_massages(){
+        $messages = Contact::all();
+        return view('admin.all_massages' , compact('messages'));
     }
 }
