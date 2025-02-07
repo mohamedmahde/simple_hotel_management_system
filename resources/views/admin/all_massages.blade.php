@@ -48,6 +48,7 @@
               <th class="th_deg">Email</th>
               <th class="th_deg">Phone</th>
               <th class="th_deg">Message</th>
+              <th class="th_deg">Send Email</th>
     
           </tr>
       
@@ -60,6 +61,12 @@
               <td>{{ $messages->email}}</td>
               <td>{{ $messages->phone  }}</td>
               <td>{{ $messages->message  }}</td>
+
+
+              <td>
+                <a class="btn btn-primary" href="{{ url('send_mail' , $messages->id) }}">Send Email</a>
+              </td>
+
           </tr>
       
           @endforeach
