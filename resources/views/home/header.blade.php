@@ -23,7 +23,7 @@
                                 <a class="nav-link" href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="about.html">About</a>
+                                <a class="nav-link" href="{{ url('about') }}">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('our_rooms') }}">Our room</a>

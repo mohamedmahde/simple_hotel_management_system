@@ -33,6 +33,9 @@ Route::post('add_booking/{id}' , [HomeController::class, 'add_booking']);
 
 Route::get('bookings' , [AdminController::class, 'bookings'])->middleware(['auth' , 'admin']);
 Route::get('delete_booking/{id}' , [AdminController::class, 'delete_booking'])->middleware(['auth' , 'admin']);
+Route::get('approve_book/{id}' , [AdminController::class, 'approve_book']);
+Route::get('rejected_book/{id}' , [AdminController::class, 'rejected_book']);
+
 Route::get('view_gallary' , [AdminController::class, 'view_gallary'])->middleware(['auth' , 'admin']);
 
 Route::post('upload_gallary' , [AdminController::class, 'upload_gallary'])->middleware(['auth' , 'admin']);
@@ -46,6 +49,7 @@ Route::post('mail/{id}' , [AdminController::class, 'mail'])->name('mail')->middl
 Route::get('our_rooms' , [HomeController::class, 'our_rooms']);
 Route::get('hotel_gallary' , [HomeController::class, 'hotel_gallary']);
 Route::get('contact_us' , [HomeController::class, 'contact_us']);
+Route::get('about' , [HomeController::class, 'about']);
 
 
 

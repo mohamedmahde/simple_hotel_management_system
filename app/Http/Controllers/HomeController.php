@@ -74,7 +74,12 @@ class HomeController extends Controller
     public function contact_us()
     {
         $contact = Contact::all();
-        return view('home.contact_us' , compact('gallary'));
+        return view('home.contact_us' , compact('contact'));
+    }
+
+    public function about()
+    {
+        return view('home.about_us' );
     }
     
 

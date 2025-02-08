@@ -147,6 +147,24 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function approve_book($id)
+    {
+
+        $booking =  Booking::find($id);
+        $booking->status = 'approve';
+        $booking->save();
+        return redirect()->back();
+    }
+
+    public function rejected_book($id)
+    {
+
+        $booking =  Booking::find($id);
+        $booking->status = 'reject';
+        $booking->save();
+        return redirect()->back();
+    }
+
     public function view_gallary()
     {
         $gallary = Gallary::all();
@@ -207,4 +225,7 @@ class AdminController extends Controller
         Notification::send($data, new MyFirstNotification($details));
         return redirect()->back();
     }
+
+
+
 }
