@@ -19,29 +19,29 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/' , [AdminController::class, 'home']);
 
-Route::get('/home' , [AdminController::class, 'index'])->name('home');
-Route::get('/create_room' , [AdminController::class, 'create_room']);
-Route::post('/add_room' , [AdminController::class, 'add_room']);
-Route::get('/view_room' , [AdminController::class, 'view_room']);
+Route::get('/home' , [AdminController::class, 'index'])->name('home')->middleware(['auth' , 'admin']);
+Route::get('/create_room' , [AdminController::class, 'create_room'])->middleware(['auth' , 'admin']);
+Route::post('/add_room' , [AdminController::class, 'add_room'])->middleware(['auth' , 'admin']);
+Route::get('/view_room' , [AdminController::class, 'view_room'])->middleware(['auth' , 'admin']);
 
-Route::get('room_delete/{id}' , [AdminController::class, 'room_delete'])->name('room_delete');
-Route::get('room_update/{id}' , [AdminController::class, 'room_update'])->name('room_update');
+Route::get('room_delete/{id}' , [AdminController::class, 'room_delete'])->name('room_delete')->middleware(['auth' , 'admin']);
+Route::get('room_update/{id}' , [AdminController::class, 'room_update'])->name('room_update')->middleware(['auth' , 'admin']);
 
-Route::post('edit_room/{id}' , [AdminController::class, 'edit_room']);
+Route::post('edit_room/{id}' , [AdminController::class, 'edit_room'])->middleware(['auth' , 'admin']);
 Route::get('room_details/{id}' , [HomeController::class, 'room_details'])->name('room_details');
 Route::post('add_booking/{id}' , [HomeController::class, 'add_booking']);
 
-Route::get('bookings' , [AdminController::class, 'bookings']);
-Route::get('delete_booking/{id}' , [AdminController::class, 'delete_booking']);
-Route::get('view_gallary' , [AdminController::class, 'view_gallary']);
+Route::get('bookings' , [AdminController::class, 'bookings'])->middleware(['auth' , 'admin']);
+Route::get('delete_booking/{id}' , [AdminController::class, 'delete_booking'])->middleware(['auth' , 'admin']);
+Route::get('view_gallary' , [AdminController::class, 'view_gallary'])->middleware(['auth' , 'admin']);
 
-Route::post('upload_gallary' , [AdminController::class, 'upload_gallary']);
-Route::get('delete_gallary/{id}' , [AdminController::class, 'delete_gallary'])->name('delete_gallary');
+Route::post('upload_gallary' , [AdminController::class, 'upload_gallary'])->middleware(['auth' , 'admin']);
+Route::get('delete_gallary/{id}' , [AdminController::class, 'delete_gallary'])->name('delete_gallary')->middleware(['auth' , 'admin']);
 
 Route::post('contact' , [HomeController::class, 'contact']);
-Route::get('all_massages' , [AdminController::class, 'all_massages']);
-Route::get('send_mail/{id}' , [AdminController::class, 'send_mail']);
-Route::post('mail/{id}' , [AdminController::class, 'mail'])->name('mail');
+Route::get('all_massages' , [AdminController::class, 'all_massages'])->middleware(['auth' , 'admin']);
+Route::get('send_mail/{id}' , [AdminController::class, 'send_mail'])->middleware(['auth' , 'admin']);
+Route::post('mail/{id}' , [AdminController::class, 'mail'])->name('mail')->middleware(['auth' , 'admin']);
 
 
 
