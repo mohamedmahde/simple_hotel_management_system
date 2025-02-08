@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Booking;
 use App\Models\Contact;
+use App\Models\Gallary;
 
 class HomeController extends Controller
 {
@@ -35,18 +36,17 @@ class HomeController extends Controller
 
         if ($isBooked) {
             return redirect()->back()->with('message', 'room is already booked please try different date');
+        } else {
+            $data->start_date = $request->startDate;
+            $data->end_date = $request->endDate;
+            $data->save();
+            return redirect()->back()->with('message', 'room booked successfully');
         }
-
-       else{
-        $data->start_date = $request->startDate;
-        $data->end_date = $request->endDate;
-        $data->save();
-        return redirect()->back()->with('message', 'room booked successfully');
     }
-       }
 
 
-       public function contact(Request $request){
+    public function contact(Request $request)
+    {
 
         $contact = new Contact();
 
@@ -56,8 +56,26 @@ class HomeController extends Controller
         $contact->message = $request->message;
 
         $contact->save();
-        return redirect()->back()->with('message' , 'Message Send Successfully');
+        return redirect()->back()->with('message', 'Message Send Successfully');
+    }
 
+    public function our_rooms()
+    {
+        $room = Room::all();
+        return view('home.our_rooms' , compact('room'));
+    }
 
-       }
+    public function hotel_gallary()
+    {
+        $gallary = Gallary::all();
+        return view('home.hotel_gallary' , compact('gallary'));
+    }
+
+    public function contact_us()
+    {
+        $contact = Contact::all();
+        return view('home.contact_us' , compact('gallary'));
+    }
+    
+
 }

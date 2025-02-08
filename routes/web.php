@@ -43,5 +43,10 @@ Route::get('all_massages' , [AdminController::class, 'all_massages'])->middlewar
 Route::get('send_mail/{id}' , [AdminController::class, 'send_mail'])->middleware(['auth' , 'admin']);
 Route::post('mail/{id}' , [AdminController::class, 'mail'])->name('mail')->middleware(['auth' , 'admin']);
 
+Route::get('our_rooms' , [HomeController::class, 'our_rooms']);
+Route::get('hotel_gallary' , [HomeController::class, 'hotel_gallary']);
+Route::get('contact_us' , [HomeController::class, 'contact_us']);
+
+
 
 
